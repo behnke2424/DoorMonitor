@@ -1,0 +1,36 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="style.css">
+        <script src="https://www.gstatic.com/firebasejs/8.0.1/firebase-app.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/8.0.1/firebase-firestore.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/8.0.1/firebase-analytics.js"></script>
+    </head>
+    <body>
+        <h1>Cloud Cafe</h1>
+
+        <div class="content">
+            <form id="add-cafe-form"></form>
+            <ul id="trigger-list"></ul>
+        </div>
+        <script>
+            // Your web app's Firebase configuration
+            // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+            var firebaseConfig = {
+              apiKey: "AIzaSyBH8Vd6_NeM3ae9TarCVRb7pE03T3XSaV8",
+              authDomain: "doormonitor-dd0ec.firebaseapp.com",
+              databaseURL: "https://doormonitor-dd0ec.firebaseio.com",
+              projectId: "doormonitor-dd0ec",
+              storageBucket: "doormonitor-dd0ec.appspot.com",
+              messagingSenderId: "180094984167",
+              appId: "1:180094984167:web:b21161cbd5404926a62742",
+              measurementId: "G-9Y9XKP28EY"
+            };
+            // Initialize Firebase
+            firebase.initializeApp(firebaseConfig);
+            firebase.analytics();
+            const db = firebase.firestore();
+            db.settings({timestampsInSnapshots: true});
+          </script>
+        <script src="app.js"></script>
+    </body>
+</html>
