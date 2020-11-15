@@ -9,11 +9,11 @@ function renderTriggers(doc) {
     let stop = document.createElement('span');
 
     li.setAttribute('data-id', doc.id);
-    day.textContent = doc.data().day;
-    hour.textContent = doc.data().hour;
-    minute.textContent = doc.data().minute;
-    second.textContent = doc.data().seconds;
-    stop.textContent = doc.data().stop;
+    day.textContent = doc.day;
+    hour.textContent = doc.hour;
+    minute.textContent = doc.minute;
+    second.textContent = doc.seconds;
+    stop.textContent = doc.stop;
 
     li.appendChild(day);
     li.appendChild(hour);
@@ -25,8 +25,25 @@ function renderTriggers(doc) {
 
 }
 
-var data = db.collection('Triggers').get().then((snapshot) => {
+/*
+var data = db.collection('Triggers/append').get().then((snapshot) => {
     snapshot.docs.forEach(doc => {
         renderTriggers(doc);
     })
 })
+*/
+
+
+
+ref.on("value", function(snapshot) {
+    //var newPost = snapshot.val();
+    //console.log("Day: " + newPost.day);
+    snapshot.forEach(childSnapshot => {
+        //console.log(childSnapshot);
+        childData = childSnapshot.val();
+        //console.log(childData.hour);
+        renderTriggers(childData);
+    });
+  }, function (errorObject) {
+    console.log("The read failed: " + errorObject.code);
+  });

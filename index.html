@@ -1,9 +1,11 @@
 <html>
     <head>
         <link rel="stylesheet" href="style.css">
-        <script src="https://www.gstatic.com/firebasejs/8.0.1/firebase-app.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/7.13.1/firebase.js"></script>
+        <!--<script src="https://www.gstatic.com/firebasejs/8.0.1/firebase-app.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/3.1.0/firebase-database.js"></script>
         <script src="https://www.gstatic.com/firebasejs/8.0.1/firebase-firestore.js"></script>
-        <script src="https://www.gstatic.com/firebasejs/8.0.1/firebase-analytics.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/8.0.1/firebase-analytics.js"></script>-->
     </head>
     <body>
         <h1>Cloud Cafe</h1>
@@ -26,10 +28,12 @@
               measurementId: "G-9Y9XKP28EY"
             };
             // Initialize Firebase
+            //var firebase = new Firebase("https://doormonitor-dd0ec.firebaseio.com");
             firebase.initializeApp(firebaseConfig);
-            firebase.analytics();
-            const db = firebase.firestore();
-            db.settings({timestampsInSnapshots: true});
+            //firebase.analytics();
+            var db = firebase.database();
+            var ref = db.ref("Triggers/append");
+            //db.settings({timestampsInSnapshots: true});
           </script>
         <script src="app.js"></script>
     </body>
